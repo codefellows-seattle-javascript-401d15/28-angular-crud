@@ -1,21 +1,29 @@
-'use strict';
+'use strict'
 
-require('./_signup.scss');
+// require('./_signup.scss')
 
 module.exports = {
   template: require('./signup.html'),
-  controller: ['$log', '$location', 'authService', SignupController],
   controllerAs: 'signupCtrl',
-};
+  controller: ['$log', '$location', '$window', 'authService', function($log, $location, $window, authService) {
+    this.$onInit = () => {
+      $log.debug('SignupController')
+      if(!$window.localStorage.token) {
+        authService.getToken()
+        .then(
+          () => $location.url('/home'),
+          () => $location.url('/signup')
+        )
+      }
 
-function SignupController($log, $location, authService) {
-  $log.debug('SignupController');
+      this.title = 'Welcome to the signup page!'
 
-  authService.getToken().then(() => $location.url('/home'));
+      this.signup = function(user) {
+        $log.debug('signupCtrl.signup()')
 
-  this.signup = function(user) {
-    $log.debug('signupCtrl.signup()');
-
-    authService.signup(user).then(() => $location.url('/home'));
-  };
-}
+        authService.signup(user)
+        .then(() => $location.url('/home'))
+      }
+    }
+  }
+]}

@@ -1,21 +1,33 @@
-'use strict';
+'use strict'
 
-require('./_login.scss');
+// require('./_login.scss')
 
 module.exports = {
   template: require('./login.html'),
-  controller: ['$log', '$location', 'authService', LoginController],
   controllerAs: 'loginCtrl',
-};
+  controller: [
+    '$log',
+    '$location',
+    '$window',
+    'authService',
+    function($log, $location, authService) {
+      this.$onInit = () => {
+        $log.debug('LoginController')
+        if(!$window.localStorage.token) {
+          authService.getToken()
+          .then(
+            () => $location.url('/home'),
+            () => $location.url('/signup')
+          )
+        }
 
-function LoginController($log, $location, authService) {
-  $log.debug('LoginController');
+        this.login = function() {
+          $log.log('loginCtrl.login()')
 
-  authService.getToken().then(() => $location.url('/home'));
-
-  this.login = function() {
-    $log.log('loginCtrl.login()');
-
-    authService.login(this.user).then(() => $location.url('/home'));
-  };
+          authService.login(this.user)
+          .then(() => $location.url('/home'))
+        }
+      }
+    }
+  ]
 }
