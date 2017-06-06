@@ -5,7 +5,6 @@ For this lab we continued working with our front-end angular app utilizing a pre
 
 * [Class 28](https://github.com/codefellows/seattle-javascript-401d15/tree/master/class-28-angular-crud)
 * [Lab 28](https://github.com/codefellows-seattle-javascript-401d15/28-angular-crud)
-
 * [Class 27](https://github.com/codefellows/seattle-javascript-401d15/tree/master/class-27-angular-auth)
 * [Lab 27](https://github.com/mmpadget/27-angular-auth)
 

@@ -1,5 +1,6 @@
 'use strict';
 
+// 27
 const angular = require('angular');
 require('angular-mocks');
 
@@ -11,7 +12,7 @@ describe('testing controller', function(){
   afterEach(() => this.$rootScope.$apply());
 
   it('should have a title', () => {
-    expect(this.title).toEqual('Gallery');
+    expect(this.title).toEqual('Home');
   });
 
 });
