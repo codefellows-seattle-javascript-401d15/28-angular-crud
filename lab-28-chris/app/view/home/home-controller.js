@@ -2,11 +2,26 @@
 
 require('./_home.scss');
 
-module.exports = ['$log', HomeController];
+module.exports = [
+  '$log',
+  '$rootScope',
+  'galleryService',
+  function($log, $rootScope, galleryService) {
+    this.title = 'Welcome Home';
+    this.root = true;
+    this.$onInit = () => {
+      $log.debug('HomeController()');
 
-function HomeController($log) {
-  $log.debug('HomeController()');
+      this.galleries = [];
 
-  this.title = 'Welcome Home';
-  this.root = true;
-}
+      this.fetchGalleries = () => {
+        galleryService.fetchGalleries()
+        .then(galleries => this.galleries = galleries)
+        .catch(err => $log.error(err));
+      };
+
+      $rootScope.$on('locationChangeSuccess', this.fetchGalleries);
+      this.fetchGalleries();
+    };
+  },
+];

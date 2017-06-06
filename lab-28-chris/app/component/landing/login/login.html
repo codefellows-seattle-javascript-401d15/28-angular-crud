@@ -1,8 +1,8 @@
 <section class="login-form">
   <h2>{{ loginCtrl.title }}</h2>
-  <form
-    name="loginForm"
-    ng-submit="loginCtrl.login()" novalidate>
+  <form name="loginForm"
+    ng-submit="loginCtrl.login()"
+    novalidate>
     <div
       ng-class="{
         'error': loginForm.username.$invalid,
@@ -14,10 +14,7 @@
         placeholder="username"
         ng-minlength="4"
         ng-model="loginCtrl.user.username" required><br>
-
-      <!-- <input type="text" placeholder="email"> -->
     </div>
-
     <div
       ng-class="{
         'error': loginForm.password.$invalid && loginForm.$submitted,
@@ -30,7 +27,6 @@
         ng-minlength="3"
         ng-model="loginCtrl.user.password" required><br>
     </div>
-
     <button class="btn-std">sign in</button>
   </form>
 </section>
