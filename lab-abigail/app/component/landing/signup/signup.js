@@ -5,11 +5,12 @@ require('./_signup.scss');
 module.exports = {
   template: require('./signup.html'),
   controller: ['$log', '$location', '$window', 'authService', SignupController],
-  controllerAs: 'signupCtrl'
+  controllerAs: 'signupCtrl',
 }
 
 function SignupController($log, $location, $window, authService) {
   this.$onInit = () => {
+    this.title = 'Sign up';
     $log.debug('SignupController');
     $log.log('inside SignupController')
     if(!$window.localStorage.token) {

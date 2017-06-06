@@ -1,4 +1,5 @@
 <section class="login-form">
+  <h2>{{ loginCtrl.title }}</h2>
   <form
   name="loginForm"
   ng-submit="loginCtrl.login()"
@@ -29,7 +30,8 @@
       ng-model="loginCtrl.user.password" required>
     </div>
 
-    <button class="btn-std">sign in</button>
+    <input type="submit" value="sign in">
+    <!-- <button class="btn-std">sign in</button> -->
 
   </form>
 </section>

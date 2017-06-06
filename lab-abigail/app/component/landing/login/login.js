@@ -10,6 +10,7 @@ module.exports = {
 
 function LoginController($log, $location, $window, authService) {
   $log.debug('LoginController');
+  this.title = 'Log In';
   if(!$window.localStorage.token) {
             authService.getToken()
             .then(

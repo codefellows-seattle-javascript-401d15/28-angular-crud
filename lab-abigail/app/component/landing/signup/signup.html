@@ -4,24 +4,30 @@
     ng-submit="signupCtrl.signup(signupCtrl.user)"
     novalidate>
 
+    <div>
     <input class="input-std"
       type="text"
-      placeholder="name"
+      placeholder="username"
       ng-minlength="4"
       ng-model="signupCtrl.user.username"
       required>
+    </div>
 
+    <div>
     <input class="input-std"
       type="text"
       placeholder="email"
       ng-model="signupCtrl.user.email">
+    </div>
 
+    <div>
     <input class="input-std"
       type="text"
       placeholder="password"
       ng-minlength="3"
       ng-model="signupCtrl.user.password"
       required>
+    </div>
 
     <input type="submit" value="sign up">
   </form>
