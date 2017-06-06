@@ -3,20 +3,10 @@
 module.exports = [
   '$log',
   '$rootScope',
-  // '$window', $window, $location, authService,
-  // '$location',
-  // 'authService',
   'galleryService',
   function($log, $rootScope, galleryService){
     this.$onInit = () => {
       $log.debug('#HomeController()')
-      // if(!$window.localStorage.Token){
-      //   authService.getToken()
-      //   .then(
-      //     () => $location.url('/home')
-      //     // () => $location.url('/signup')
-      //   )
-      // }
       this.title = 'Welcome to hell'
       this.galleries = []
 

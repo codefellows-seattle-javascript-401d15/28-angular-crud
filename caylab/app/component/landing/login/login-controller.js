@@ -8,18 +8,10 @@ module.exports = {
   controller: [
     '$log',
     '$location',
-    // '$window',
     'authService',
     function($log, $location, authService){
       this.$onInit = () => {
         $log.debug('#loginCtrl')
-        // if(!$window.localStorage.token){
-        //   authService.getToken()
-        //   .then(
-        //     () => $location.url('/home')
-        //     // () => $location.url('/signup')
-        //   )
-        // }
 
         authService.getToken()
         .then(() => $location.url('/home'))

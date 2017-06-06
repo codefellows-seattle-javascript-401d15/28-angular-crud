@@ -8,7 +8,6 @@ module.exports = {
   controller: ['$log', 'galleryService', function($log, galleryService){
     this.$onInit = () => {
       $log.debug('#createGalleryCtrl')
-      //this is called a lifecycle hook. it's necessary because angular needs to know when to register and initialize these components
       this.gallery = {}
 
       return this.createGallery = () => {

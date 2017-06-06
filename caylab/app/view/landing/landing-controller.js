@@ -3,8 +3,6 @@
 module.exports = [
   '$log',
   '$location',
-  // '$rootScope',
-  // 'authService',
   function($log, $location){
     this.$onInit = () => {
       this.title = 'Please sign in'

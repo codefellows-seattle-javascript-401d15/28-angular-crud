@@ -13,13 +13,6 @@ module.exports = {
     function($log, $location, $window, authService){
       this.$onInit = () => {
         $log.debug('#signupCtrl')
-        // if(!$window.localStorage.token){
-        //   authService.getToken()
-        //   .then(
-        //     () => $location.url('/home'),
-        //     () => $location.url('/signup')
-        //   )
-        // }
         authService.getToken()
         .then(() => $location.url('/home'))
 
