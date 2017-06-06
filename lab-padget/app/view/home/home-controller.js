@@ -18,8 +18,8 @@ module.exports = [
   'authService',
   'galleryService',
   function($log, $rootScope, $window, $location, authService, galleryService) {
-  this.$onInit = () => {
-    $log.debug('HomeController()');
+    this.$onInit = () => {
+    $log.log('HomeController()');
     if(!$window.localStorage.token) {
       authService.getToken()
       .then(
