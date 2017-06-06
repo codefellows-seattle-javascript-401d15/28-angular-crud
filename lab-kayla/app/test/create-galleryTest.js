@@ -9,7 +9,7 @@ describe('Create Gallery Component', function() {
       this.$rootScope = $rootScope
       this.$httpBackend = $httpBackend
       this.$window = $window
-      this.createGalleryCtrl = $componentController('createGalleryCtrl')
+      this.createGalleryCtrl = $componentController('createGallery')
       done()
     })
   })
