@@ -3,23 +3,24 @@
 module.exports = [
   '$log',
   '$rootScope',
-  '$window',
-  '$location',
-  'authService',
+  // '$window', $window, $location, authService,
+  // '$location',
+  // 'authService',
   'galleryService',
-  function($log, $rootScope, $window, $location, authService, galleryService){
+  function($log, $rootScope, galleryService){
     this.$onInit = () => {
       $log.debug('#HomeController()')
-      if(!$window.localStorage.Token){
-        authService.getToken()
-        .then(
-          () => $location.url('/home'),
-          () => $location.url('/signup')
-        )
-      }
+      // if(!$window.localStorage.Token){
+      //   authService.getToken()
+      //   .then(
+      //     () => $location.url('/home')
+      //     // () => $location.url('/signup')
+      //   )
+      // }
+      this.title = 'Welcome to hell'
       this.galleries = []
 
-      this,fetchGalleries = () => {
+      this.fetchGalleries = () => {
         return galleryService.fetchGalleries()
         .then(galleries => this.galleries = galleries)
         .catch(err => $log.error(err))

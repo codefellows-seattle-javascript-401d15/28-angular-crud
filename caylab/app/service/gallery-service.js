@@ -18,7 +18,7 @@ module.exports = [
         let config = {
           headers: {
             Accept: 'application/json',
-            'Content-Type': 'application',
+            'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`
           }
         }
@@ -31,14 +31,14 @@ module.exports = [
         return gallery
       })
       .catch(err => {
-        $log.error(err.message)
+        $log.error(err)
         return $q.reject(err)
       })
     }
 
     service.fetchGalleries = () => {
       $log.debug('#service.fetchGalleries')
-      return authService.getToken
+      return authService.getToken()
       .then(token => {
         let config = {
           headers: {

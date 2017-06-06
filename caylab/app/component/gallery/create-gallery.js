@@ -11,7 +11,7 @@ module.exports = {
       //this is called a lifecycle hook. it's necessary because angular needs to know when to register and initialize these components
       this.gallery = {}
 
-      this.createGallery = () => {
+      return this.createGallery = () => {
         return galleryService.createGallery(this.gallery)//the frontend ui is going to assign a new gallery when we fillout the form on submit
         .then(() => {
           let res = this.gallery
@@ -19,9 +19,8 @@ module.exports = {
           this.gallery.desc = null
           return res
         })
-        .catch(err => $log.error(err.message))
+        .catch(err => $log.error(err))
       }
     }
   }]
-
 }

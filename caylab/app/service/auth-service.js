@@ -22,7 +22,7 @@ module.exports = [
     }
 
     service.getToken = function() {
-      $log.debug('authService.getToken()')
+      $log.debug('#getToken')
 
       if(token) return $q.resolve(token)
       token = $window.localStorage.getItem('token')
@@ -32,17 +32,14 @@ module.exports = [
     }
 
     service.logout = function() {
-      $log.debug('authService.logout()')
-
+      $log.debug('#logout')
       $window.localStorage.removeItem('token')
       token = null
-
       return $q.resolve()
     }
 
     service.signup = function(user) {
-      $log.debug('authService.signup()')
-
+      $log.debug('#signup')
       let url = `${__API_URL__}/api/signup`
       let config = {
         headers: {
@@ -57,14 +54,13 @@ module.exports = [
         return setToken(res.data)
       })
       .catch(err => {
-        $log.error('failure', err)
+        $log.error('failure to post', err)
         return $q.reject(err)
       })
     }
 
     service.login = function(user) {
-      $log.debug('authService.login()')
-
+      $log.debug('#login')
       let url = `${__API_URL__}/api/login`
       let base64 = $window.btoa(`${user.username}:${user.password}`)
       let config = {

@@ -12,14 +12,16 @@ module.exports = {
     'authService',
     function($log, $location, $window, authService){
       this.$onInit = () => {
-        $log.debug('SignupController')
-        if(!$window.localStorage.token){
-          authService.getToken()
-          .then(
-            () => $location.url('/home'),
-            () => $location.url('/signup')
-          )
-        }
+        $log.debug('#signupCtrl')
+        // if(!$window.localStorage.token){
+        //   authService.getToken()
+        //   .then(
+        //     () => $location.url('/home'),
+        //     () => $location.url('/signup')
+        //   )
+        // }
+        authService.getToken()
+        .then(() => $location.url('/home'))
 
         this.title = 'Welcome to the signup page@!@#!@'
 
