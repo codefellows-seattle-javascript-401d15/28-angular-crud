@@ -10,7 +10,7 @@ module.exports = {
       $log.debug('Create Gallery Controller');
       this.gallery = {};
       
-      this.createGallery = () => {
+      return this.createGallery = () => {
         return galleryService.createGallery(this.gallery)
         .then(() => {
           let res = this.gallery;
