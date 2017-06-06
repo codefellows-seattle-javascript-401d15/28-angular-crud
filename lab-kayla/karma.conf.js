@@ -1,43 +1,33 @@
-// Generated on Mon Jun 05 2017 13:03:26 GMT-0700 (PDT)
+'use strict'
+
+const webpack = require('./webpack.config.js')
+delete webpack.entry
 
 module.exports = function(config) {
   config.set({
-
+    webpack,
     basePath: '',
-
-
-    frameworks: ['jasmine'],
-
+    frameworks: ['mocha'],
     files: [
-      'entry.js'
+      'node_modules/babel-polyfill/dist/polyfill.js',
+      'node_modules/angular/angular.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+      'app/entry.js',
+      'test/**/*-test.js'
     ],
-
     exclude: [
     ],
-
-
     preprocessors: {
+      'app/entry.js': ['webpack'],
+      'test/**/*-test.js': ['webpack']
     },
-
-    reporters: ['progress'],
-
+    reporters: ['mocha'],
     port: 9876,
-
-
     colors: true,
-
-
-    logLevel: config.LOG_INFO,
-
-
-    autoWatch: false,
-
-
+    logLevel: config.LOG_DISABLE,
+    autoWatch: true,
     browsers: ['Chrome'],
-
-
     singleRun: false,
-
     concurrency: Infinity
   })
 }
