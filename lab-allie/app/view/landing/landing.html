@@ -9,10 +9,10 @@
   ng-if="landingCtrl.showSignup">
     <div>
       <signup-controller></signup-controller>
-      <p>Want to sign up?</p>
+      <p>Already a Member?</p>
       <a href="/#!/login"
         ng-click="landingCtrl.showSignup=false">
-          Sign up here
+        Sign back in
         </a>
     </div>
   </div>
@@ -21,10 +21,10 @@
     ng-if="!landingCtrl.showSignup">
     <div>
       <login-controller></login-controller>
-      <p>Already a Member?</p>
+      <p>Want to sign up?</p>
       <a href="/#!/signup"
         ng-click="landingCtrl.showSignup=true">
-        Sign back in
+        Sign up here
       </a>
     </div>
   </div>

@@ -4,8 +4,8 @@ module.exports = [
   '$stateProvider',
   '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
-    // $urlRouterProvider.when('', '/join#signup'); from lecture
-    $urlRouterProvider.when('', '/home'); // from demo code
+    $urlRouterProvider.when('', '/join#signup'); //from lecture
+    // $urlRouterProvider.when('', '/home'); // from demo code
     $urlRouterProvider.when('/', '/join#signup');
     $urlRouterProvider.when('/signup', '/join#signup');
     $urlRouterProvider.when('/login', '/join#login');
