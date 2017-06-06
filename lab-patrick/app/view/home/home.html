@@ -1,0 +1,17 @@
+<button href="/#!/home">HOME</button>
+<button name="logout" ng-click="homeCtrl.logout()">LOG OUT</button>
+<section class="home-content">
+  <h2>Welcome to the home page!</h2>
+  <nav>
+  </nav>
+  <create-gallery></create-gallery>
+
+<ul>
+  <li ng-repeat="gallery in homeCtrl.galleries">
+    <span>name: {{ gallery.name }}</span>
+    <span>desc: {{ gallery.desc }}</span>
+    <span>id: {{ gallery._id }}</span>
+  </li>
+</ul>
+<createGallery></createGallery>
+</section>
