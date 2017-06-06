@@ -1,33 +1,28 @@
 'use strict';
 
-const dotenv = require('dotenv');
+require('dotenv').load();
+
 const webpack = require('webpack');
 const HTMLPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
-
-dotenv.load();
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 
-// throws error with reassigning plugins if const.
 let plugins = [
-  new ExtractTextPlugin('bundle.css'),
-  new HTMLPlugin({ template: `${__dirname}/app/index.html` }),
+  new ExtractTextPlugin({ filename: 'bundle.css' }),
+  new HTMLPlugin({template: `${__dirname}/app/index.html`}),
   new webpack.DefinePlugin({
     __API_URL__: JSON.stringify(process.env.API_URL),
     __DEBUG__: JSON.stringify(!production),
   }),
 ];
 
-// throws error with reassigning plugins if const.
 if(production) {
   plugins = plugins.concat([
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
-      compress: {
-        warnings: false,
-      },
+      compress: { warnings: false },
     }),
     new CleanPlugin(),
   ]);
@@ -35,27 +30,26 @@ if(production) {
 
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
+  devtool: production ? false : 'source-map',
   output: {
     filename: 'bundle.js',
     path: `${__dirname}/build`,
   },
   plugins,
-  devtool: production ? false : 'source-map',
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
+        use: ['babel-loader'],
       },
       {
         test: /\.html$/,
-        use: 'html-loader',
+        use: ['html-loader'],
       },
       {
-        test: /\.(eot|ttf|woff|svg).*/,
-        use: 'file-loader',
-        // use: 'url?limit=10000&name=image/[hash].[ext]',
+        test: /\.(woff|ttf|svg|eot).*/,
+        use: 'url-loader?limit=10000&name=image/[hash].[ext]',
       },
       {
         test: /\.scss$/,

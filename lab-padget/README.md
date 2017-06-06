@@ -31,11 +31,14 @@ Initializing package.json
 ```
 npm init
 ```
+Dependencies:
 ```
-npm i -S @uirouter/angularjs angular babel-core babel-loader babel-preset-es2015 camelcase clean-webpack-plugin css-loader dotenv extract-text-webpack-plugin file-loader html-loader html-webpack-plugin node-sass pascalcase resolve-url-loader sass-loader style-loader url-loader webpack
+npm i -S
+@uirouter/angularjs angular babel-core babel-loader babel-preset-es2015 camelcase clean-webpack-plugin css-loader dotenv extract-text-webpack-plugin file-loader html-loader html-webpack-plugin node-sass pascalcase resolve-url-loader sass-loader style-loader url-loader webpack
 ```
+Dev Dependencies:
 ```
-npm i -D webpack-dev-server angular-mocks jasmine jasmine-core karma karma-chrome-launcher karma-jasmine karma-mocha-reporter karma-webpack webpack-dev-server
+npm i -D angular-mocks chai karma karma-chrome-launcher karma-mocha karma-mocha-reporter karma-phantomjs-launcher karma-webpack mocha webpack-dev-server
 ```
 
 Add the following to package.json:
@@ -52,39 +55,7 @@ Add the following to package.json:
 The result of installation above.
 
 ```
-"dependencies": {
-  "@uirouter/angularjs": "^1.0.3",
-  "angular": "^1.6.4",
-  "babel-core": "^6.24.1",
-  "babel-loader": "^7.0.0",
-  "babel-preset-es2015": "^6.24.1",
-  "camelcase": "^4.1.0",
-  "clean-webpack-plugin": "^0.1.16",
-  "css-loader": "^0.28.4",
-  "dotenv": "^4.0.0",
-  "extract-text-webpack-plugin": "^2.1.0",
-  "file-loader": "^0.11.1",
-  "html-loader": "^0.4.5",
-  "html-webpack-plugin": "^2.28.0",
-  "node-sass": "^4.5.3",
-  "pascalcase": "^0.1.1",
-  "resolve-url-loader": "^2.0.2",
-  "sass-loader": "^6.0.5",
-  "style-loader": "^0.18.1",
-  "url-loader": "^0.5.8",
-  "webpack": "^2.6.1"
-},
-"devDependencies": {
-  "angular-mocks": "^1.6.4",
-  "jasmine": "^2.6.0",
-  "jasmine-core": "^2.6.2",
-  "karma": "^1.7.0",
-  "karma-chrome-launcher": "^2.1.1",
-  "karma-jasmine": "^1.1.0",
-  "karma-mocha-reporter": "^2.2.3",
-  "karma-webpack": "^2.0.3",
-  "webpack-dev-server": "^2.4.5"
-}
+
 ```
 
 ## Backend Installation

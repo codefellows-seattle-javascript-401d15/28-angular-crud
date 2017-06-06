@@ -7,27 +7,25 @@ module.exports = function(config) {
   config.set({
     webpack,
     basePath: '',
-    frameworks: ['jasmine'],
+    frameworks: ['mocha'],
     files: [
-      // 'entry.js',
+      'node_modules/angular/angular.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+      'app/entry.js',
       'test/**/*-test.js',
     ],
     exclude: [
-      // 'no',
     ],
     preprocessors: {
-      // 'entry.js': ['webpack'],
+      'app/entry.js': ['webpack'],
       'test/**/*-test.js': ['webpack'],
     },
     reporters: ['mocha'],
     port: 9876,
     colors: true,
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
-    // autoWatch: false,
+    logLevel: config.LOG_DISABLE,
     autoWatch: true,
     browsers: ['Chrome'],
-    // browsers: ['PhantomJS'],
     singleRun: false,
     concurrency: Infinity,
   });
