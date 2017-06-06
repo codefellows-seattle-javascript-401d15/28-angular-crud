@@ -33,8 +33,7 @@ npm init
 ```
 Dependencies:
 ```
-npm i -S
-@uirouter/angularjs angular babel-core babel-loader babel-preset-es2015 camelcase clean-webpack-plugin css-loader dotenv extract-text-webpack-plugin file-loader html-loader html-webpack-plugin node-sass pascalcase resolve-url-loader sass-loader style-loader url-loader webpack
+npm i -S @uirouter/angularjs angular babel-core babel-loader babel-preset-es2015 camelcase clean-webpack-plugin css-loader dotenv extract-text-webpack-plugin file-loader html-loader html-webpack-plugin node-sass pascalcase resolve-url-loader sass-loader style-loader url-loader webpack
 ```
 Dev Dependencies:
 ```
@@ -131,23 +130,28 @@ Adjust the configuration karma.conf.js file to:
 config.set({
   webpack,
   basePath: '',
-  frameworks: ['jasmine'],
+  frameworks: ['mocha'],
   files: [
+    'node_modules/angular/angular.js',
+    'node_modules/angular-mocks/angular-mocks.js',
+    'app/entry.js',
     'test/**/*-test.js',
   ],
   exclude: [
   ],
   preprocessors: {
+    'app/entry.js': ['webpack'],
     'test/**/*-test.js': ['webpack'],
   },
   reporters: ['mocha'],
   port: 9876,
   colors: true,
-  logLevel: config.LOG_INFO,
+  logLevel: config.LOG_DISABLE,
   autoWatch: true,
   browsers: ['Chrome'],
   singleRun: false,
   concurrency: Infinity,
+});
 ```
 
 ## Running Tests
