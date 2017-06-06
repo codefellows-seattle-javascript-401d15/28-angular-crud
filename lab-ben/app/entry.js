@@ -14,17 +14,10 @@ let context = require.context('./config/', true, /\.js$/);
 context.keys().forEach(path => cfgram.config(context(path)));
 
 context = require.context('./view/', true, /\.js$/);
-context.keys().forEach(key => {
-  let name = pascalcase(path.basename(key, '.js'));
-  cfgram.controller(name, context(key));
-});
+context.keys().forEach(key => cfgram.controller(pascalcase(path.basename(key, '.js')), context(key)));
 
 context = require.context('./service/', true, /\.js$/);
-context.keys().forEach(key => {
-  cfgram.service(camelcase(path.basename(key, '.js')), context(key));
-});
+context.keys().forEach(key => cfgram.service(camelcase(path.basename(key, '.js')), context(key)));
 
 context = require.context('./component/', true, /\.js$/);
-context.keys().forEach(key => {
-  cfgram.component(camelcase(path.basename(key, '.js')), context(key));
-});
+context.keys().forEach(key => cfgram.component(camelcase(path.basename(key, '.js')), context(key)));
