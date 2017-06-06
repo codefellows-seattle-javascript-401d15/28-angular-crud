@@ -96,23 +96,42 @@ The result of installation above.
 
 ## Application
 
-### Frontend
+### Front-end
 In Terminal run `npm run build`
 Result: app/index.html {0} [built]
 
 In Terminal run `npm run build-watch`
 Result: "Project is running at http://localhost:8080/", "webpack: Compiled successfully."
 
-### Backend
-In 1st Terminal window run `npm run start-debug`
+Exit with control + c
+
+### Back-end
+In 1st Terminal window navigate to your `slugram-backend` directory
+Run `npm run start-debug`
 Result: "slugram:sever server up on 3000"
 
 In 2nd Terminal window run `mongo`
 Result: "connecting to: mongodb://127.0.0.1:27017"
 
+Exit with control + c
+
 ## API
 * POST: `http://localhost:3000/api/signup`
 * GET: `http://localhost:3000/api/login`
+
+## Database
+To clear the mongoDB, use Terminal to:
+1. Enter `show dbs`
+2. Enter `use cfgram-backend`
+3. Enter `show collections`
+4. Enter `db.users.drop()`
+5. Enter `db.galleries.drop()`
+6. Enter `db.pics.drop()`
+
+To clear local storage, use Chrome console to:
+* Enter `localStorage.clear()`
+
+Clear with command + k
 
 ## Test Setup
 ```
@@ -177,7 +196,7 @@ Result: "Project is running at http://localhost:8080/", "webpack: Compiled succe
 * [Testing with Protractor](http://www.ng-newsletter.com/posts/practical-protractor.html)
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/mmpadget/27-angular-auth/blob/lab-27/lab-padget/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/mmpadget/28-angular-crud/blob/lab-28/lab-padget/LICENSE) file for details.
 
 ## Acknowledgments
 * Code Fellows
