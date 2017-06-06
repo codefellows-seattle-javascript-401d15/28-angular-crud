@@ -2,13 +2,13 @@
 
 module.exports = [
   '$stateProvider',
-  '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('', '/join#signup'); //from lecture
-    // $urlRouterProvider.when('', '/home'); // from demo code
-    $urlRouterProvider.when('/', '/join#signup');
-    $urlRouterProvider.when('/signup', '/join#signup');
-    $urlRouterProvider.when('/login', '/join#login');
+  '$urlServiceProvider',
+  function($stateProvider, $urlServiceProvider) {
+    $urlServiceProvider.rules.when('', '/join#signup'); //from lecture
+    // $urlServiceProvider.when('', '/home'); // from demo code
+    $urlServiceProvider.rules.when('/', '/join#signup');
+    $urlServiceProvider.rules.when('/signup', '/join#signup');
+    $urlServiceProvider.rules.when('/login', '/join#login');
     
     let routes = [
       {

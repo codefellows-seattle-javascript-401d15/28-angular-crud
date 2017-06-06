@@ -11,7 +11,7 @@
     "watch": "webpack-dev-server --inline --hot",
     "build": "webpack",
     "lint": "eslint",
-    "test-watch": "mocha"
+    "test-watch": "karma start --auto-watch"
   },
   "author": "Allie Grampa",
   "license": "MIT",

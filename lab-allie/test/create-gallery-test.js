@@ -24,7 +24,7 @@ describe('Create gallery component', function() {
   })
   
   describe('testing createGalleryCtrl.createGallery()', () => {
-    it('should make a valid POST request for all galleries', done => {
+    it('should make a valid POST request for all galleries', () => {
       let expectUrl = 'http://localhost:3000/api/gallery';
       let expectHeaders = {
         Accept: 'application/json',
