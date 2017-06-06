@@ -37,7 +37,7 @@ module.exports = [
       });
     };
 
-    service.fetchGallery = (gallery) => {
+    service.fetchGalleries = () => {
       $log.debug('#service.fetchGalleries');
 
       return authService.getToken()
@@ -49,7 +49,7 @@ module.exports = [
             Authorization: `Bearer ${token}`,
           },
         };
-        return $http.get(`${__API_URL__}/api/gallery`, gallery, config);
+        return $http.get(`${__API_URL__}/api/gallery`, config);
       })
       .then(res => {
         $log.log('gallery fetched');
@@ -61,6 +61,32 @@ module.exports = [
         $q.reject(err);
       });
     };
+
+    service.deleteGallery = (gallery) => {
+      $log.debug('#service.deleteGallery');
+
+      return authService.getToken()
+      .then(token => {
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        return $http.delete(`${__API_URL__}/api/gallery/${gallery._id}`, config);
+      })
+      .then(() => {
+        $log.log('gallery deleted');
+        service.galleries
+        //find gallery in galleries
+        return;
+      })
+      .catch(err => {
+        $log.error(err.message);
+        $q.reject(err);
+      });
+    }
 
     return service;
   },

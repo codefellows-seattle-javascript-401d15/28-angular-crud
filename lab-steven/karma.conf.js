@@ -1,12 +1,12 @@
 // Karma configuration
 // Generated on Wed May 31 2017 09:10:05 GMT-0700 (PDT)
 
-const webpackConfig = require('./webpack.config.js');
-delete webpackConfig.entry;
+const webpack = require('./webpack.config.js');
+delete webpack.entry;
 
 module.exports = function(config) {
   config.set({
-    webpack: webpackConfig,
+    webpack,
     client: {
       captureConsole: true,
     },
@@ -27,7 +27,8 @@ module.exports = function(config) {
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'app/entry.js',
-      'test/**/*-test.js',
+      'test/*-test.js',
+      // 'test/**/*-test.js',
     ],
 
 
@@ -41,7 +42,7 @@ module.exports = function(config) {
     preprocessors: {
       'app/entry.js': ['webpack'],
       'test/*-test.js': ['webpack'],
-      'test/**/*-test.js': ['webpack'],
+      // 'test/**/*-test.js': ['webpack'],
     },
 
 

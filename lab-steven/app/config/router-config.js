@@ -23,13 +23,7 @@ module.exports = [
         controller: 'LandingController',
         controllerAs: 'landingCtrl',
       },
-      {
-        name: 'gallery',
-        url: '/gallery',
-        template: require('../view/gallery/gallery.html'),
-        controller: 'GalleryController',
-        controllerAs: 'galleryCtrl',
-      },
+      
     ];
 
     routes.forEach(route => $stateProvider.state(route));

@@ -4,7 +4,7 @@
 
 describe('Auth service', function(){
   beforeEach(() => {
-    angular.mock.module('routesApp');
+    angular.mock.module('cfgram');
     angular.mock.inject(($httpBackend, $window, $rootScope, authService) => {
       this.$httpBackend = $httpBackend;
       this.$window = $window;

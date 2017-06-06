@@ -1,17 +1,19 @@
 'use strict';
 
-const angular = require('angular');
-require('angular-mocks');
-
 describe('home controller', function(){
   beforeEach(() => {
-    angular.mock.module('routesApp');
-    angular.mock.inject(($rootScope, $controller) => {
-      console.log('******************************************************');
+    angular.mock.module('cfgram');
+    angular.mock.inject(($rootScope, $httpBackend, $window, $controller) => {
       this.$rootScope = $rootScope;
+      this.$httpBackend = $httpBackend;
+      this.$window = $window;
       this.homeCtrl = new $controller('HomeController');
-      // this.homeCtrl.$onInit();
     });
+  });
+
+  beforeEach(() => {
+    this.homeCtrl.$onInit();
+
   });
   afterEach(() => this.$rootScope.$apply());
 
