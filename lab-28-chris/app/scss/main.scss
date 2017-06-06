@@ -1,0 +1,40 @@
+html {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  // font-size: 1.2em;
+}
+
+section {
+  display: inline-block;
+}
+
+body {
+  margin: auto;
+}
+
+h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+div.background {
+  margin: auto;
+  background-color: #888;
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  height: 88vh;
+  z-index: -999999999;
+}
+
+@media (min-width: 800px) {
+  div.background {
+    left: 25%;
+    right: 25%;
+  }
+
+  html {
+    font-size: 1.25em;
+  }
+}
