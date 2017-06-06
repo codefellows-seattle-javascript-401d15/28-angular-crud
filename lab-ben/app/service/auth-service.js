@@ -5,7 +5,7 @@ module.exports = [
   '$log',
   '$http',
   '$window',
-  function($q, $log, $http, $window, authService) {
+  function($q, $log, $http, $window) {
     $log.debug('authService');
 
     let service = {};
@@ -14,7 +14,7 @@ module.exports = [
     function setToken(_token) {
       $log.debug('authService.setToken');
 
-      if(!token) return $q.reject(new Error('No token'));
+      if(!_token) return $q.reject(new Error('No token'));
 
       $window.localStorage.setItem('token', _token);
       token = _token;
@@ -44,12 +44,13 @@ module.exports = [
 
     service.signup = function(user) {
       $log.debug('authService.signup');
+      $log.log(user);
 
       let url = `${__API_URL__}/api/signup`;
       let config = {
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
         },
       };
 
@@ -90,3 +91,26 @@ module.exports = [
     return service;
   },
 ];
+
+
+// {
+//   "data":"BadRequestError",
+//   "status":400,
+//   "config":{
+//     "method":"POST",
+//     "transformRequest":[null],
+//     "transformResponse":[null],
+//     "jsonpCallbackParam":"callback",
+//     "headers":{
+//       "Accept":"application/json",
+//       "Content-Type":"application/json"
+//     },
+//     "url":"http://localhost:3000/api/signup",
+//     "data":{
+//       "username":"benny",
+//       "email":"ben@ben.ben",
+//       "password":"1234"
+//     }
+//   },
+//   "statusText":"Bad Request"
+// }

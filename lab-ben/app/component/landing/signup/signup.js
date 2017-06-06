@@ -13,8 +13,8 @@ function SignupController($log, $location, $window,  authService) {
     $log.debug('SignupController');
     if(!$window.localStorage.token) {
       authService.getToken().then(
-        () => $location.url('./home'),
-        () => $location.url('./signup')
+        () => $location.url('home'),
+        () => $location.url('signup')
       );
     }
 

@@ -49,7 +49,7 @@ module.exports = [
             Authorization: `Bearer ${token}`,
           },
         };
-        return $http.get(`${__API_URL__}/api.gallery`, config);
+        return $http.get(`${__API_URL__}/api/gallery`, config);
       })
       .then(res => {
         $log.log('galleries retrieved');

@@ -12,7 +12,7 @@ module.exports = [
     if(!$window.localStorage.token) {
       authService.getToken()
       .then(
-        () => $location.url('/home'),
+        () => $location.url('home'),
         () => $location.url('signup')
       );
     }
