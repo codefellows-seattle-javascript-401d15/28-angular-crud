@@ -1,7 +1,8 @@
 'use strict';
 
-// 28
 const expect = require('chai').expect;
+const angular = require('angular');
+require('angular-mocks');
 
 describe('Auth Service', function() {
   beforeEach(done => {
@@ -16,7 +17,7 @@ describe('Auth Service', function() {
   });
 
   describe('authService.getToken', () => {
-    it('shoul return a token', done => {
+    it('should return a token', done => {
       this.authService.token = null;
       this.$window.localStorage.setItem('token', 'test token');
 

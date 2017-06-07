@@ -1,6 +1,7 @@
 'use strict';
 
-// 28
+const angular = require('angular');
+require('angular-mocks');
 const expect = require('chai').expect;
 
 describe('Create Gallery Component', function() {

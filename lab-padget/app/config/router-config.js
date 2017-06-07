@@ -1,11 +1,5 @@
 'use strict';
 
-// module.exports = ['$stateProvider', '$urlRouterProvider', routerConfig];
-
-// module.exports = [
-//   '$stateProvider',
-//   '$urlRouterProvider',
-
 module.exports = ['$stateProvider', '$urlServiceProvider', function($stateProvider, $urlServiceProvider) {
   $urlServiceProvider.rules.when('', '/join#signup');
   $urlServiceProvider.rules.when('/', '/join#signup');
