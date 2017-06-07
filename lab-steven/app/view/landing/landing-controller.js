@@ -2,10 +2,13 @@
 
 module.exports = ['$log', '$location', '$rootScope',
   function($log, $location, $rootScope) {
-    $log.debug('LandingController');
+    this.$onInit(() => {
 
-    let url = $location.url();
-    this.showSignup = url === '/join#signup' || url === '/join';
+      $log.debug('LandingController');
+
+      let url = $location.url();
+      this.showSignup = url === '/join#signup' || url === '/join';
     
-    this.title = 'Landing Title';
+      this.title = 'Landing Title';
+    });
   }];

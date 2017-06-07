@@ -8,7 +8,7 @@ module.exports = {
       $log.debug('Create Gallery Controller');
       this.gallery = {};
 
-      return this.createGallery = () => {
+      this.createGallery = () => {
         return galleryService.createGallery(this.gallery)
         .then(() => {
           let res = this.gallery;
@@ -18,7 +18,7 @@ module.exports = {
         })
         .catch(err => $log.error(err));
       };
-      
+
     };
   }],
 

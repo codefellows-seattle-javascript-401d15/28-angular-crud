@@ -3,11 +3,11 @@
 module.exports = [
   '$stateProvider',
   '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('', '/join#signup');
-    $urlRouterProvider.when('/', '/join#signup');
-    $urlRouterProvider.when('/signup', '/join#signup');
-    $urlRouterProvider.when('/login', '/join#login');
+  function($stateProvider, $urlServiceProvider) {
+    $urlServiceProvider.when('', '/join#signup');
+    $urlServiceProvider.when('/', '/join#signup');
+    $urlServiceProvider.when('/signup', '/join#signup');
+    $urlServiceProvider.when('/login', '/join#login');
     let routes = [
       {
         name: 'home',
@@ -23,7 +23,7 @@ module.exports = [
         controller: 'LandingController',
         controllerAs: 'landingCtrl',
       },
-      
+
     ];
 
     routes.forEach(route => $stateProvider.state(route));
