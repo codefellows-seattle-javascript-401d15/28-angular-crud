@@ -54,7 +54,7 @@ module.exports = [
         return setToken(res.data)
       })
       .catch(err => {
-        $log.error('failure to post', err)
+        $log.error('Failure to post', err)
         return $q.reject(err)
       })
     }
@@ -72,11 +72,11 @@ module.exports = [
 
       return $http.get(url, config)
       .then(res => {
-        $log.log('success', res.data)
+        $log.log('Token retrieval success', res.data)
         return setToken(res.data)
       })
       .catch(err => {
-        $log.error('failure', err.message)
+        $log.error('Failure to retrieve token', err.message)
         return $q.reject(err)
       })
     }
