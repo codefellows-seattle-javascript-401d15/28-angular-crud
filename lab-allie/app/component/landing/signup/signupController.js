@@ -8,17 +8,19 @@ module.exports = {
     '$location',
     'authService',
     function($log, $location, authService) {
-      $log.debug('#signupCtrl');
-      authService.getToken()
-      .then(() => $location.url('/home'));
-      
-      this.title = 'Please sign in!';
+      this.$onInit = () => {
 
-      this.signup = function(user) {
-        $log.debug('#signupCtrl.signup');
+        $log.debug('#signupCtrl');
         
-        authService.signup(user)
-        .then(() => $location.url('/home'));
+        this.title = 'Please sign in!';
+
+        this.signup = function(user) {
+          $log.debug('#signupCtrl.signup');
+          
+          return authService.signup(user)
+          .then(() => $location.url('/home'));
+        };
+        
       };
     },
   ],
