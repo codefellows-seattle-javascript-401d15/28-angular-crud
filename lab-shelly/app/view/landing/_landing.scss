@@ -1,0 +1,22 @@
+@import '../scss/lib/theme/theme';
+
+.landing {
+  margin-top: 15%;
+
+  .join-container {
+
+    .join-inner {
+
+      .form-msg {
+
+          font-size: .85em;
+          margin-left: 60%;
+
+        p  {
+          display: inline-block;
+        }
+
+      }
+    }
+  }
+}
