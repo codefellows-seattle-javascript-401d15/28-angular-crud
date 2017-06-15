@@ -84,35 +84,10 @@ module.exports = [
           if(ele._id === res.data._id) service.galleries[index] = res.data;
         });
         return res.data;
-      })
-      .catch(err => {
+      },
+      err => {
         $log.error(err.message);
         return $q.reject(err);
-      });
-    };
-
-    service.fetchGalleries = () => {
-      $log.debug('#service.fetchGalleries');
-
-      return authService.getToken()
-      .then(token => {
-        let config = {
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        };
-        return $http.get(`${__API_URL__}/api/gallery`, config);
-      })
-      .then(res => {
-        $log.log('galleries retrieved');
-        service.galleries = res.data;
-        return res.data;
-      })
-      .catch(err => {
-        $log.error(err.message);
-        $q.reject(err);
       });
     };
 
@@ -130,18 +105,20 @@ module.exports = [
         };
         return $http.delete(url, config);
       })
-      .then(res => {
-        service.galleries.filter((ele, index) => {
-          if(ele._id === galleryId) {
-            service.galleries.splice(index, 1);
-          }
-        });
-        return;
-      })
-      .catch(err => {
-        $log.error(err.message);
-        return $q.reject(err);
-      });
+      .then(
+        res => {
+          service.galleries.filter((ele, index) => {
+            if(ele._id === galleryId) {
+              service.galleries.splice(index, 1);
+            }
+          });
+          return res.data;
+        },
+        err => {
+          $log.error(err.message);
+          return $q.reject(err);
+        }
+      );
     };
 
     return service;

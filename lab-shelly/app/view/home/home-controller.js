@@ -27,12 +27,14 @@ module.exports = [
         return galleryService.fetchGalleries()
         .then(galleries => {
           this.galleries = galleries;
+          this.currentGallery = this.galleries[0];
         })
         .catch(err => $log.error(err));
       };
 
       $rootScope.$on('locationChangeSuccess', this.fetchGalleries);
-      return this.fetchGalleries();
+      $rootScope.$on('newGalleryCreated', this.fetchGalleries);
+      this.fetchGalleries();
 
     };
   },
