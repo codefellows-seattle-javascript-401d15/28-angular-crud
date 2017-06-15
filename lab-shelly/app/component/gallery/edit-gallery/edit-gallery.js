@@ -13,10 +13,10 @@ module.exports = {
 
       $log.debug('Edit Gallery Controller');
       this.updateGallery = () => {
-        galleryService.updateGallery(this.gallery._id, this.gallery)
-        .then(
-          () => $log.log('updated successfully'),
-          err => $log.error(err));
+        galleryService.updateGallery(this.gallery._id, this.gallery);
+        // .then(
+        //   () => $log.log('updated successfully'),
+        //   err => $log.error(err));
       };
     };
   }],

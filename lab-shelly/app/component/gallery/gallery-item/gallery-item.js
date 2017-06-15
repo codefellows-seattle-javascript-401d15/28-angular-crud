@@ -8,7 +8,7 @@ module.exports = {
   bindings: {
     gallery: '<',
   },
-  controller: ['$log', 'galleryService', function($log, galleryService) {
+  controller: ['$log', '$rootScope', 'galleryService', function($log, $rootScope, galleryService) {
     this.$onInit = () => {
 
       $log.debug('Gallery Item Controller');
@@ -16,12 +16,8 @@ module.exports = {
       this.showEditGallery = false;
 
       this.deleteGallery = () => {
-
-        galleryService.deleteGallery(this.gallery._id)
-        .then(
-          () => $log.log('gallery deleted'),
-          err => $log.error(err)
-        );
+        $log.debug('#galleryItemCtrl.deleteGallery');
+        galleryService.deleteGallery(this.gallery._id);
       };
     };
 

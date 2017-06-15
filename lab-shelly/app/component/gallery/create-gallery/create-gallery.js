@@ -5,7 +5,7 @@ require('./_create-gallery.scss');
 module.exports = {
   template: require('./create-gallery.html'),
   controllerAs: 'createGalleryCtrl',
-  controller: ['$log', 'galleryService', function($log, galleryService) {
+  controller: ['$log', '$rootScope', 'galleryService', function($log, $rootScope, galleryService) {
     this.$onInit = () => {
 
       $log.debug('CreateGalleryController');
@@ -17,6 +17,7 @@ module.exports = {
           let res = this.gallery;
           this.gallery.name = null;
           this.gallery.desc = null;
+          $rootScope.$emit('newGalleryCreated');
           return res;
         })
         .catch(err => $log.error(err));

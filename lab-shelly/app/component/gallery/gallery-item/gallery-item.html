@@ -1,8 +1,10 @@
 <li class="gallery-item">
   <div ng-if="!galleryItemCtrl.showEditGallery">
     <div>
-      <span>name: {{ galleryItemCtrl.gallery.name }}</span>
-      <span>description: {{ galleryItemCtrl.gallery.desc }}</span>
+      <span>{{ galleryItemCtrl.gallery.name | uppercase }}</span>
+      <span>{{ galleryItemCtrl.gallery.desc | lowercase | limitTo: 30 }}</span>
+      <span>created: {{ galleryItemCtrl.gallery.created | date }}</span>
+      <span>Total pics: {{ galleryItemCtrl.gallery.pics.length | number }}</span>
       <span>id: {{ galleryItemCtrl.gallery._id }}</span>
     </div>
   </div>
