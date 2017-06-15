@@ -91,31 +91,6 @@ module.exports = [
       });
     };
 
-    service.fetchGalleries = () => {
-      $log.debug('#service.fetchGalleries');
-
-      return authService.getToken()
-      .then(token => {
-        let config = {
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        };
-        return $http.get(`${__API_URL__}/api/gallery`, config);
-      })
-      .then(res => {
-        $log.log('galleries retrieved');
-        service.galleries = res.data;
-        return res.data;
-      })
-      .catch(err => {
-        $log.error(err.message);
-        $q.reject(err);
-      });
-    };
-
     service.deleteGallery = (galleryId) => {
       $log.debug('#galleryService.deleteGallery');
 
@@ -130,7 +105,7 @@ module.exports = [
         };
         return $http.delete(url, config);
       })
-      .then(res => {
+      .then(() => {
         service.galleries.filter((ele, index) => {
           if(ele._id === galleryId) {
             service.galleries.splice(index, 1);

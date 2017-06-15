@@ -27,7 +27,6 @@ describe('Auth Service', function() {
       });
       done();
     });
-
   });
 
 });
