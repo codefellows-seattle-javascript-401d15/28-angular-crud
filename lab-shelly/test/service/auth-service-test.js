@@ -1,6 +1,6 @@
 'use strict';
 
-const expect = require('chai').expect
+const expect = require('chai').expect;
 
 describe('Auth Service', function() {
   beforeEach(done => {
@@ -27,7 +27,6 @@ describe('Auth Service', function() {
       });
       done();
     });
-
   });
 
 });

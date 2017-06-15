@@ -1,0 +1,10 @@
+<div class="thumbnail">
+  <img ng-src="{{ thumbnailCtrl.pic.imageURI }}" alt=" {{ thumbnailContainerCtrl.pic.desc }}">
+
+  <div class="thumbnail-info">
+   <span>name: {{ thumbnailCtrl.pic.name }}</span>
+   <span>desc: {{ thumbnailCtrl.pic.desc }}</span>
+ </div>
+
+  <button class="btn-sm" ng-click="thumbnailCtrl.deletePic()">delete</button>
+</div>
