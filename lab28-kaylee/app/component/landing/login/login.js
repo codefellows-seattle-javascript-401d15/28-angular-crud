@@ -1,6 +1,6 @@
 'use strict'
 
-// require('./_login.scss')
+require('./_login.scss')
 
 module.exports = {
   template: require('./login.html'),
@@ -20,7 +20,6 @@ module.exports = {
             () => $location.url('/signup')
           )
         }
-
         this.login = function() {
           $log.log('loginCtrl.login()')
 

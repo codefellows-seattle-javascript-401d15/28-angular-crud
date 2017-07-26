@@ -1,6 +1,9 @@
 'use strict'
 
-module.exports = ['$stateProvider', '$urlServiceProvider', function($stateProvider, $urlServiceProvider) {
+module.exports = [
+  '$stateProvider',
+  '$urlServiceProvider',
+  function($stateProvider, $urlServiceProvider) {
   $urlServiceProvider.rules.when('', '/join#signup')
   $urlServiceProvider.rules.when('/', '/join#signup')
   $urlServiceProvider.rules.when('/signup', '/join#signup')
@@ -22,6 +25,5 @@ module.exports = ['$stateProvider', '$urlServiceProvider', function($stateProvid
       controllerAs: 'landingCtrl'
     }
   ]
-
   routes.forEach($stateProvider.state)
 }]
